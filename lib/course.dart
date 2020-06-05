@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:flip_card/flip_card.dart';
-// void main() => runApp(new MyApp());
+import 'package:flip_card/flip_card.dart';
+
+void main() => runApp(new MyApp());
 
 class CardItemModel {
   String cardTitle;
@@ -49,9 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.blueGrey[900],
                   elevation: 7,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                  child: Center(
-                    child: Text("${cardsList[i].cardTitle}", style: TextStyle(fontSize: 38.0,color: Colors.white)),
-                  ),
+                  child:FlipCard(
+                      direction: FlipDirection.HORIZONTAL,
+                      speed: 1000,
+                      onFlipDone: (status) {
+                        print(status);
+                      },
+                    front: Center(child:Text("${cardsList[i].cardTitle}", style: TextStyle(fontSize: 38.0,color: Colors.white)),),
+                    back: Center(child:Text("Schedule", style: TextStyle(fontSize: 38.0,color: Colors.white)),)
+                    ),
                 ),
               );
             },
