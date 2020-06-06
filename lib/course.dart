@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
-
-void main() => runApp(new MyApp());
+// void main() => runApp(new MyApp());
 
 class CardItemModel {
   String cardTitle;
