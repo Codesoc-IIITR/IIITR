@@ -1,65 +1,68 @@
 import 'package:flutter/material.dart';
+import 'package:iiitr/course_schedule.dart';
 import 'drawer_items.dart';
 
 class HomePage extends StatefulWidget {
+ static  const String id = 'HomeScreen';
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  List<bool> isExpanded = [
-    false,
-  ];
-  List<DrawerItem> drawerItems = [
-    DrawerItem(
-      heading: 'Mess Menu',
-      leadingIcon: Icon(
-        Icons.restaurant_menu,
-      ),
-      body: Column(
-        children: <Widget>[
-          ListTile(
-            title: Text(
-              'UDH',
-            ),
-          ),
-          ListTile(
-            title: Text(
-              'LDH',
-            ),
-          ),
+  List<DrawerItem> drawerItems;
 
-        ],
+  List<DrawerItem> getDrawerItemList(BuildContext context)
+  {
+     List<DrawerItem> drawerItems = [
+      DrawerItem(
+        heading: 'Mess Menu',
+        leadingIcon: Icon(
+          Icons.restaurant_menu,
+        ),
+        body: Column(
+          children: <Widget>[
+            ListTile(
+              title: Text(
+                'UDH',
+              ),
+            ),
+            ListTile(
+              title: Text(
+                'LDH',
+              ),
+            ),
+
+          ],
+        ),
+        isExpanded: false,
       ),
-      isExpanded: false,
-    ),
-    DrawerItem(
-      heading: 'Bus Schedule',
-      leadingIcon: Icon(
-        Icons.directions_bus,
-      ),
-      body: Column(
-        children: <Widget>[
-          ListTile(
-            title: Text(
+      DrawerItem(
+        heading: 'Bus Schedule',
+        leadingIcon: Icon(
+          Icons.directions_bus,
+        ),
+        body: Column(
+          children: <Widget>[
+            ListTile(
+              title: Text(
                 'Lingampally',
+              ),
             ),
-          ),
-          ListTile(
-            title: Text(
-              'Sangareddy',
+            ListTile(
+              title: Text(
+                'Sangareddy',
+              ),
             ),
-          ),
-          ListTile(
-            title: Text(
-              'Main Gate',
+            ListTile(
+              title: Text(
+                'Main Gate',
+              ),
             ),
-          ),
 
-        ],
+          ],
+        ),
+        isExpanded: false,
       ),
-      isExpanded: false,
-    ),
 //    DrawerItem(
 //      heading: 'Announcement',
 //      leadingIcon: Icon(
@@ -67,40 +70,63 @@ class _HomePageState extends State<HomePage> {
 //      ),
 //      isExpanded: false,
 //    ),
-    DrawerItem(
-      heading: 'Course Schedule',
-      leadingIcon: Icon(
-        Icons.schedule,
-      ),
-      body:  Column(
-        children: <Widget>[
-          ListTile(
-            title: Text(
-              'First Year',
+      DrawerItem(
+        heading: 'Course Schedule',
+        leadingIcon: Icon(
+          Icons.schedule,
+        ),
+        body:  Column(
+          children: <Widget>[
+            ListTile(
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.pushNamed(context, CourseSchedule.id) ;
+              },
+              title: Text(
+                'First Year',
+              ),
             ),
-          ),
-          ListTile(
-            title: Text(
-              'Second Year',
+            ListTile(
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.pushNamed(context, CourseSchedule.id) ;
+              },
+              title: Text(
+                'Second Year',
+              ),
             ),
-          ),
-          ListTile(
-            title: Text(
-              'Third Year',
+            ListTile(
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.pushNamed(context, CourseSchedule.id) ;
+              },
+              title: Text(
+                'Third Year',
+              ),
             ),
-          ),
-          ListTile(
-            title: Text(
-              'Fourth Year',
+            ListTile(
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.pushNamed(context, CourseSchedule.id) ;
+              },
+              title: Text(
+                'Fourth Year',
+              ),
             ),
-          ),
 
-        ],
+          ],
+        ),
+        isExpanded: false,
       ),
-      isExpanded: false,
-    ),
 
-  ];
+    ];
+     return drawerItems;
+  }
+  @override
+  void initState() {
+    drawerItems = getDrawerItemList(context);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
