@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'course.dart';
 
 void main() => runApp(MyApp());
 
@@ -39,13 +40,16 @@ class MyHomePage extends StatelessWidget {
               accountEmail: Text("CS19B1017"),
               currentAccountPicture: CircleAvatar(backgroundColor:Colors.white,child: Text("K",style: TextStyle(fontSize: 40.0),),),
                                       ),
+             ListTile(
+              leading: Icon(Icons.home), title: Text("Home"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
             ListTile(
               leading: Icon(Icons.class_), title: Text("Course Schedule"),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
+                Navigator.push(context,new MaterialPageRoute(builder: (context) => new Cschecdule()),);
               },
             ),
             ListTile(
@@ -54,7 +58,8 @@ class MyHomePage extends StatelessWidget {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                // Navigator.pop(context);
+               Navigator.pop(context);
               },
             ),
           ],

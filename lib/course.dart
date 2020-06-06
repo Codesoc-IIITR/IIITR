@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
-// void main() => runApp(new MyApp());
+import 'main.dart';
+// void main() => runApp(new Cschedule());
 
 class CardItemModel {
   String cardTitle;
   CardItemModel(this.cardTitle);
 }
-class MyApp extends StatelessWidget {
+class Cschecdule extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
+      darkTheme: ThemeData( brightness: Brightness.dark,),
       home: new MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
@@ -62,6 +64,36 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             },
           ),
+        ),
+      ),
+       drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Kushagra Indurkhya"),
+              accountEmail: Text("CS19B1017"),
+              currentAccountPicture: CircleAvatar(backgroundColor:Colors.white,child: Text("K",style: TextStyle(fontSize: 40.0),),),
+                                      ),
+             ListTile(
+              leading: Icon(Icons.home), title: Text("Home"),
+              onTap: () {
+                Navigator.push(context,new MaterialPageRoute(builder: (context) => new MyApp()),);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.class_), title: Text("Course Schedule"),
+              onTap: () {Navigator.pop(context);},
+            ),
+            ListTile(
+              leading: Icon(Icons.fastfood), title: Text("Mess Schedule"),
+              onTap: () {Navigator.pop(context);},
+            ),
+          ],
         ),
       ),
     );
