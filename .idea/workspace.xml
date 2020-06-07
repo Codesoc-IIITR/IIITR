@@ -88,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591512069094</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="3 sec">
+      <created>1591515469216</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1591515469216</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,41 +115,42 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="home page with drawer" />
     <MESSAGE value="splash screen added" />
-    <option name="LAST_COMMIT_MESSAGE" value="splash screen added" />
+    <MESSAGE value="3 sec" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 sec" />
   </component>
   <component name="WindowStateProjectService">
     <state x="401" y="125" width="624" height="551" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591424737168">
       <screen x="70" y="27" width="1296" height="741" />
     </state>
     <state x="401" y="125" width="624" height="551" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/70.27.1296.741@70.27.1296.741" timestamp="1591424737168" />
-    <state x="318" y="0" width="777" height="741" key="CommitChangelistDialog2" timestamp="1591512068284">
+    <state x="318" y="0" width="777" height="741" key="CommitChangelistDialog2" timestamp="1591515468096">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="318" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1591512068284" />
+    <state x="318" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1591515468096" />
     <state x="324" y="27" width="777" height="741" key="CommitChangelistDialog2/70.27.1296.741@70.27.1296.741" timestamp="1591450168848" />
     <state x="549" y="169" key="FileChooserDialogImpl" timestamp="1591495731804">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="169" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591495731804" />
-    <state width="1491" height="182" key="GridCell.Tab.0.bottom" timestamp="1591515393324">
+    <state width="1491" height="182" key="GridCell.Tab.0.bottom" timestamp="1591518989975">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="182" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591515393324" />
+    <state width="1491" height="182" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591518989975" />
     <state width="1250" height="215" key="GridCell.Tab.0.bottom/70.27.1296.741@70.27.1296.741" timestamp="1591470113808" />
-    <state width="1491" height="182" key="GridCell.Tab.0.center" timestamp="1591515393324">
+    <state width="1491" height="182" key="GridCell.Tab.0.center" timestamp="1591518989975">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="182" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591515393324" />
+    <state width="1491" height="182" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591518989975" />
     <state width="1250" height="215" key="GridCell.Tab.0.center/70.27.1296.741@70.27.1296.741" timestamp="1591470113805" />
-    <state width="1491" height="182" key="GridCell.Tab.0.left" timestamp="1591515393324">
+    <state width="1491" height="182" key="GridCell.Tab.0.left" timestamp="1591518989973">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="182" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591515393324" />
+    <state width="1491" height="182" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591518989973" />
     <state width="1250" height="215" key="GridCell.Tab.0.left/70.27.1296.741@70.27.1296.741" timestamp="1591470113803" />
-    <state width="1491" height="182" key="GridCell.Tab.0.right" timestamp="1591515393324">
+    <state width="1491" height="182" key="GridCell.Tab.0.right" timestamp="1591518989975">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="182" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591515393324" />
+    <state width="1491" height="182" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591518989975" />
     <state width="1250" height="215" key="GridCell.Tab.0.right/70.27.1296.741@70.27.1296.741" timestamp="1591470113807" />
     <state x="162" y="4" width="1022" height="737" key="SettingsEditor" timestamp="1591495736949">
       <screen x="0" y="0" width="1536" height="824" />
@@ -157,10 +165,10 @@
       <screen x="70" y="27" width="1296" height="741" />
     </state>
     <state x="374" y="225" key="com.intellij.ide.util.TipDialog/70.27.1296.741@70.27.1296.741" timestamp="1591466404727" />
-    <state x="493" y="322" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591515448816">
+    <state x="493" y="322" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591519076708">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="493" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1591515448816" />
+    <state x="493" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1591519076708" />
     <state x="486" y="317" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/70.27.1296.741@70.27.1296.741" timestamp="1591470109551" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1591495633080">
       <screen x="0" y="0" width="1536" height="824" />
