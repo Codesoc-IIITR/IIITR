@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
+import 'package:iiitr/my_drawer.dart';
 
 //void main() => runApp(new MyApp());
 
@@ -33,6 +34,7 @@ class _CourseScheduleState extends State<CourseSchedule> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      drawer: MyDrawer(),
      // backgroundColor:Colors.black,
       appBar: AppBar(title: new Text("Course Schedule", style: TextStyle(fontSize: 25.0),),
        // backgroundColor:Colors.black,

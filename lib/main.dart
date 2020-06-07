@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iiitr/course_schedule.dart';
+import 'package:iiitr/mess_menu_screen.dart';
 import 'home_page.dart';
 import 'splash_screen.dart';
 
@@ -16,10 +17,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData.dark(),
       initialRoute: SplashScreen.id,
+     // initialRoute: MessMenuScreen.id,
       routes: {
         SplashScreen.id: (context) => SplashScreen(),
         HomePage.id: (context) => HomePage(),
         CourseSchedule.id: (context) => CourseSchedule(),
+        MessMenuScreen.id: (context) => MessMenuScreen(),
       },
       //home: HomePage(),
     );

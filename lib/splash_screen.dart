@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SplashScreen extends StatefulWidget {
   static  const String id = 'SplashScreen';
@@ -58,24 +59,30 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               Expanded(
                 flex: 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircularProgressIndicator(),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20.0),
+                  child: Container(
+                    child: SpinKitThreeBounce(
+                      color: Colors.white,
+                      size: 30.0,
                     ),
-                    Text(
-                      "IIITR Application",
-                      softWrap: true,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0,
-                          color: Colors.white),
-                    )
-                  ],
-                ),
+                  ),
+//                child: Column(
+//                  mainAxisAlignment: MainAxisAlignment.center,
+//                  children: <Widget>[
+//                    CircularProgressIndicator(),
+//                    Padding(
+//                      padding: EdgeInsets.only(top: 20.0),
+//                    ),
+//                    Text(
+//                      "IIITR Application",
+//                      softWrap: true,
+//                      textAlign: TextAlign.center,
+//                      style: TextStyle(
+//                          fontWeight: FontWeight.bold,
+//                          fontSize: 18.0,
+//                          color: Colors.white),
+//                    )
+//                  ],
+//                ),
               )
             ],
           )
