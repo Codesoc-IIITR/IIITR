@@ -1,0 +1,9 @@
+.dart_tool
+.idea
+android
+ios
+test
+web
+build
+.packages
+pubspec.lock
