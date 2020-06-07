@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a5f947be-7761-413e-b4ed-e0e41a085645" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/android/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/modules/android.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/drawable/android.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/splash_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/course.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/course_schedule.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,17 +46,27 @@
     </option>
   </component>
   <component name="ProjectId" id="1cw0gNE6EzCY9xOQ3Nqn3pc2VXL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Courses\Programming\flutter\IIITR\android\app\src\main\res\drawable" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -77,6 +103,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="home page with drawer" />
     <option name="LAST_COMMIT_MESSAGE" value="home page with drawer" />
   </component>
@@ -89,26 +116,39 @@
       <screen x="70" y="27" width="1296" height="741" />
     </state>
     <state x="324" y="27" width="777" height="741" key="CommitChangelistDialog2/70.27.1296.741@70.27.1296.741" timestamp="1591450168848" />
-    <state width="1250" height="215" key="GridCell.Tab.0.bottom" timestamp="1591470113808">
-      <screen x="70" y="27" width="1296" height="741" />
+    <state x="549" y="169" key="FileChooserDialogImpl" timestamp="1591495731804">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="549" y="169" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591495731804" />
+    <state width="1491" height="182" key="GridCell.Tab.0.bottom" timestamp="1591510457169">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="182" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591510457169" />
     <state width="1250" height="215" key="GridCell.Tab.0.bottom/70.27.1296.741@70.27.1296.741" timestamp="1591470113808" />
-    <state width="1250" height="215" key="GridCell.Tab.0.center" timestamp="1591470113805">
-      <screen x="70" y="27" width="1296" height="741" />
+    <state width="1491" height="182" key="GridCell.Tab.0.center" timestamp="1591510457169">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1491" height="182" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591510457169" />
     <state width="1250" height="215" key="GridCell.Tab.0.center/70.27.1296.741@70.27.1296.741" timestamp="1591470113805" />
-    <state width="1250" height="215" key="GridCell.Tab.0.left" timestamp="1591470113803">
-      <screen x="70" y="27" width="1296" height="741" />
+    <state width="1491" height="182" key="GridCell.Tab.0.left" timestamp="1591510457168">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1491" height="182" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591510457168" />
     <state width="1250" height="215" key="GridCell.Tab.0.left/70.27.1296.741@70.27.1296.741" timestamp="1591470113803" />
-    <state width="1250" height="215" key="GridCell.Tab.0.right" timestamp="1591470113807">
-      <screen x="70" y="27" width="1296" height="741" />
+    <state width="1491" height="182" key="GridCell.Tab.0.right" timestamp="1591510457169">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1491" height="182" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591510457169" />
     <state width="1250" height="215" key="GridCell.Tab.0.right/70.27.1296.741@70.27.1296.741" timestamp="1591470113807" />
-    <state x="207" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1591425888095">
-      <screen x="70" y="27" width="1296" height="741" />
+    <state x="162" y="4" width="1022" height="737" key="SettingsEditor" timestamp="1591495736949">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="162" y="4" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591495736949" />
     <state x="207" y="31" width="1022" height="737" key="SettingsEditor/70.27.1296.741@70.27.1296.741" timestamp="1591425888095" />
+    <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1591496271530">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1536.824@0.0.1536.824" timestamp="1591496271530" />
     <state x="374" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1591466404727">
       <screen x="70" y="27" width="1296" height="741" />
     </state>
@@ -117,5 +157,9 @@
       <screen x="70" y="27" width="1296" height="741" />
     </state>
     <state x="486" y="317" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/70.27.1296.741@70.27.1296.741" timestamp="1591470109551" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1591495633080">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1591495633080" />
   </component>
 </project>
