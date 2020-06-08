@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
       drawer: MyDrawer(),
       appBar: AppBar(
         title: Text(
-          'IIITR Dashboard',
+          'Home',
         ),
       ),
       body: ListView(
