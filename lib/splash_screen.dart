@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         radius: 50.0,
                         child: Icon(
                           Icons.school,
-                          color: Colors.greenAccent,
+                          color: Colors.blue,
                           size: 65.0,
                         ),
                       ),
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         padding: EdgeInsets.only(top: 10.0),
                       ),
                       Text(
-                        "IIIT RAICHUR",
+                        "IIITR Dashboard",
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -60,9 +60,21 @@ class _SplashScreenState extends State<SplashScreen> {
               Expanded(
                 flex: 1,
                   child: Container(
-                    child: SpinKitThreeBounce(
-                      color: Colors.white,
-                      size: 30.0,
+                    child: Column(
+                      children: <Widget>[
+                      //  Image.asset('images/iiitr_logo.png'),
+                        SizedBox(
+                         height: 50.0,
+                        ),
+                        SpinKitThreeBounce(
+                          color: Colors.white,
+                          size: 30.0,
+                        ),
+//                        SizedBox(
+//                          height: 10.0,
+//                        ),
+//                        Text('IIIT RAICHUR'),
+                      ],
                     ),
                   ),
 //                child: Column(

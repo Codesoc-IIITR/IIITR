@@ -35,7 +35,7 @@ class _MessMenuScreenState extends State<MessMenuScreen> {
             items: days.map((String day){
               return DropdownMenuItem<String>(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(8.0, 10.0, 0.0, 8.0),
+                  padding: const EdgeInsets.fromLTRB(8.0, 15.0, 0.0, 8.0),
                   child: Text(day),
                 ),
                 value: day,
@@ -49,59 +49,124 @@ class _MessMenuScreenState extends State<MessMenuScreen> {
         ),
 
       ),
-      body: ListView(
-        scrollDirection: Axis.horizontal,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(50.0, 100.0, 50.0, 100.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(100.0),
-                child: Center(child: Text('Breakfast')),
-              ),
+        body: PageView(
+          scrollDirection: Axis.vertical,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                      child: Center(
+                        child: Text('Breakfast'),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                      child: Center(
+                        child: Text('Lunch'),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(50.0, 100.0, 50.0, 100.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(100.0),
-                child: Center(child: Text('Lunch')),
-              ),
+            Column(
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                      child: Center(
+                        child: Text('Snacks'),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                      child: Center(
+                        child: Text('Dinner'),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(50.0, 100.0, 50.0, 100.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(100.0),
-                child: Center(child: Text('Snacks')),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(50.0, 100.0, 50.0, 100.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(100.0),
-                child: Center(child: Text('Dinner')),
-              ),
-            ),
-          ),
-        ],
-      ),
+          ],
+        ),
+//      body: ListView(
+//        scrollDirection: Axis.horizontal,
+//        children: <Widget>[
+//          Padding(
+//            padding: const EdgeInsets.fromLTRB(50.0, 100.0, 50.0, 100.0),
+//            child: Card(
+//              shape: RoundedRectangleBorder(
+//                borderRadius: BorderRadius.circular(25.0),
+//              ),
+//              child: Padding(
+//                padding: const EdgeInsets.all(100.0),
+//                child: Center(child: Text('Breakfast')),
+//              ),
+//            ),
+//          ),
+//          Padding(
+//            padding: const EdgeInsets.fromLTRB(50.0, 100.0, 50.0, 100.0),
+//            child: Card(
+//              shape: RoundedRectangleBorder(
+//                borderRadius: BorderRadius.circular(25.0),
+//              ),
+//              child: Padding(
+//                padding: const EdgeInsets.all(100.0),
+//                child: Center(child: Text('Lunch')),
+//              ),
+//            ),
+//          ),
+//          Padding(
+//            padding: const EdgeInsets.fromLTRB(50.0, 100.0, 50.0, 100.0),
+//            child: Card(
+//              shape: RoundedRectangleBorder(
+//                borderRadius: BorderRadius.circular(25.0),
+//              ),
+//              child: Padding(
+//                padding: const EdgeInsets.all(100.0),
+//                child: Center(child: Text('Snacks')),
+//              ),
+//            ),
+//          ),
+//          Padding(
+//            padding: const EdgeInsets.fromLTRB(50.0, 100.0, 50.0, 100.0),
+//            child: Card(
+//              shape: RoundedRectangleBorder(
+//                borderRadius: BorderRadius.circular(25.0),
+//              ),
+//              child: Padding(
+//                padding: const EdgeInsets.all(100.0),
+//                child: Center(child: Text('Dinner')),
+//              ),
+//            ),
+//          ),
+//        ],
+//      ),
     );
   }
 }
