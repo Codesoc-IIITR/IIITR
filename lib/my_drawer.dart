@@ -157,20 +157,20 @@ class _MyDrawerState extends State<MyDrawer> {
                 CircleAvatar(
                   child: Icon(
                     Icons.school,
-                    size: 60.0,
+                    size: 70.0,
                   ),
                   // backgroundImage: AssetImage('images/temporary_logo.png'),
-                  radius: 40.0,
+                  radius: 60.0,
                 ),
                 SizedBox(
                   height: 15.0,
                 ),
-                Text(
-                  'IIITR Dashboard',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                  ),
-                ),
+                // Text(
+                //   'IIITR Dashboard',
+                //   style: TextStyle(
+                //     fontSize: 30.0,
+                //   ),
+                // ),
               ],
             ),
 
