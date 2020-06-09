@@ -6,14 +6,12 @@ import 'drawer_items.dart';
 
 class MyDrawer extends StatefulWidget {
 
-
   @override
   _MyDrawerState createState() => _MyDrawerState();
 }
 
 class _MyDrawerState extends State<MyDrawer> {
   List<DrawerItem> drawerItems;
-
   List<DrawerItem> getDrawerItemList(BuildContext context)
   {
     List<DrawerItem> drawerItems = [
@@ -218,3 +216,6 @@ class _MyDrawerState extends State<MyDrawer> {
     );
   }
 }
+
+
+
