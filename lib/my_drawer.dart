@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iiitr/home_page.dart';
 import 'package:iiitr/mess_menu_screen.dart';
 
 import 'course_schedule.dart';
@@ -6,12 +7,14 @@ import 'drawer_items.dart';
 
 class MyDrawer extends StatefulWidget {
 
+
   @override
   _MyDrawerState createState() => _MyDrawerState();
 }
 
 class _MyDrawerState extends State<MyDrawer> {
   List<DrawerItem> drawerItems;
+
   List<DrawerItem> getDrawerItemList(BuildContext context)
   {
     List<DrawerItem> drawerItems = [
@@ -72,13 +75,6 @@ class _MyDrawerState extends State<MyDrawer> {
         ),
         isExpanded: false,
       ),
-//    DrawerItem(
-//      heading: 'Announcement',
-//      leadingIcon: Icon(
-//        Icons.announcement,
-//      ),
-//      isExpanded: false,
-//    ),
       DrawerItem(
         heading: 'Course Schedule',
         leadingIcon: Icon(
@@ -153,41 +149,45 @@ class _MyDrawerState extends State<MyDrawer> {
                   width: double.infinity,
                 ),
                 CircleAvatar(
+                  backgroundColor: Colors.white,
                   child: Icon(
                     Icons.school,
-                    size: 70.0,
+                    color: Colors.blue,
+                    size: 60.0,
                   ),
                   // backgroundImage: AssetImage('images/temporary_logo.png'),
-                  radius: 60.0,
+                  radius: 40.0,
                 ),
                 SizedBox(
                   height: 15.0,
                 ),
-                // Text(
-                //   'IIITR Dashboard',
-                //   style: TextStyle(
-                //     fontSize: 30.0,
-                //   ),
-                // ),
+                Text(
+                  'IIITR Dashboard',
+                  style: TextStyle(
+                    fontSize: 30.0,
+                  ),
+                ),
               ],
             ),
 
           ),
-//            Card(
-//              color: Theme.of(context).backgroundColor,
-//              child: ListTile(
-//                title: Text(
-//                  'Announcement',
-//                ),
-//                leading: Icon(
-//                  Icons.announcement,
-//                ),
-//                trailing: Icon(
-//                  Icons.arrow_forward_ios,
-//                  size: 15.0,
-//                ),
-//              ),
-//            ),
+          Container(
+            color: Theme.of(context).cardColor,
+            child: ListTile(
+              onTap: (){
+              Navigator.pop(context);
+              Navigator.pushNamed(context, HomePage.id) ;
+              },
+              title: Text('Home'),
+              leading: Icon(
+                Icons.home,
+              ),
+            ),
+          ),
+          Container(
+            height: 1.0,
+            color: Colors.white30,
+          ),
           ExpansionPanelList(
             expansionCallback: (int index,bool isExpanded){
               setState(() {
@@ -216,6 +216,3 @@ class _MyDrawerState extends State<MyDrawer> {
     );
   }
 }
-
-
-
