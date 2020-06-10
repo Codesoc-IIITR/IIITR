@@ -12,37 +12,40 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  void initState() {
-    getAnnouncementData();
-    super.initState();
-  }
-  
-  QuerySnapshot snap;
-  Future<void> getAnnouncementData()async {
-       snap = await Firestore.instance.collection('announcement').orderBy('time',descending: true).getDocuments();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MyDrawer(),
-      appBar: AppBar(
-        title: Text(
-          'IIIT Dashboard',
+        drawer: MyDrawer(),
+        appBar: AppBar(
+          title: Text(
+            'IIIT Dashboard',
+          ),
         ),
-      ),
-      body: RefreshIndicator(
-        onRefresh: () {
-          return getAnnouncementData();
-        },
-        child: ListView(
-          physics: AlwaysScrollableScrollPhysics(),
-              children: snap != null ? snap.documents.map((doc) => AnnouncementTile(
-                heading: doc['heading'],
-                details: doc['details'],
-              )).toList() : [SnackBar(content: Text('unable to refresh'))],
+        body: StreamBuilder(
+          stream: Firestore.instance.collection('announcement').orderBy('time',descending: true).snapshots(),
+          builder: (context, snap) {
+            if(!snap.hasData)
+              {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            List<AnnouncementTile> tiles = [];
+            var docs =  snap.data.documents;
+            for(var doc in docs)
+              {
+                var tile = AnnouncementTile(
+                  heading: doc['heading'],
+                  details: doc['details'],
+                );
+                tiles.add(tile);
+              }
+            return ListView(
+              children: tiles,
+            );
+          }
             ),
-      ),
     );
         }
 

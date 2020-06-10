@@ -34,7 +34,7 @@ class _AnnouncementTileState extends State<AnnouncementTile> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 20.0),
                 child: Text(
-                  'Hyderabad City Tour  ',
+                  '${widget.heading}',
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
