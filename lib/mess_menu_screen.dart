@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iiitr/mess_menu_screen_arguments.dart';
 import 'package:iiitr/my_drawer.dart';
+
+import 'menu_text_widget.dart';
 
 
 class MessMenuScreen extends StatefulWidget {
@@ -16,8 +20,17 @@ class _MessMenuScreenState extends State<MessMenuScreen> {
     'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
   ];
   String dropDownValue = days[DateTime.now().weekday - 1];
+  Map<String,dynamic>  breakfast;
+  Map<String,dynamic> lunch;
+  Map<String,dynamic> dinner;
+  Map<String,dynamic> snacks;
+  String breakfastExtras;
+  String lunchExtras;
+  String snacksExtras;
+  String dinnerExtras;
   @override
   Widget build(BuildContext context) {
+    final MessMenuScreenArguments args =  ModalRoute.of(context).settings.arguments;
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
@@ -49,70 +62,183 @@ class _MessMenuScreenState extends State<MessMenuScreen> {
         ),
 
       ),
-        body: PageView(
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-            Column(
+        body: StreamBuilder<QuerySnapshot>(
+          stream: Firestore.instance.collection('${args.selectedMess}').document('$dropDownValue').collection('meals').snapshots(),
+          builder: (context, snapshot) {
+
+            if(!snapshot.hasData)
+            {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            var meals = snapshot.data.documents;
+            for(var meal in meals)
+            {
+
+              if(meal.documentID == 'breakfast')
+                {
+                  breakfast = meal['menu'];
+                  breakfastExtras = meal['extras'];
+                }
+              else if(meal.documentID == 'lunch')
+                {
+                  lunch = meal['menu'];
+                  lunchExtras = meal['extras'];
+                }
+              else if(meal.documentID == 'snacks')
+               {
+                 snacks = meal['menu'];
+                 snacksExtras = meal['extras'];
+               }
+              else if(meal.documentID == 'dinner')
+                {
+                  dinner = meal['menu'];
+                  dinnerExtras = meal['extras'];
+                }
+            }
+            List<MenuTextWidget> breakfastItems = [];
+            breakfast.forEach((key, value) => breakfastItems.add(MenuTextWidget(value: value)));
+
+            List<MenuTextWidget> lunchItems = [];
+            lunch.forEach((key, value) => lunchItems.add(MenuTextWidget(value: value)));
+
+            List<MenuTextWidget> snacksItems = [];
+            snacks.forEach((key, value) => snacksItems.add(MenuTextWidget(value: value)));
+
+            List<MenuTextWidget> dinnerItems = [];
+            dinner.forEach((key, value) => dinnerItems.add(MenuTextWidget(value: value)));
+
+            return PageView(
+              scrollDirection: Axis.vertical,
               children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                      child: Center(
-                        child: Text('Breakfast'),
+                Column(
+                  children: <Widget>[
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: <Widget>[
+                                Text('Breakfast'),
+                                SizedBox(height: 10.0),
+                                Expanded(
+                                  child: ListView(
+                                    children: breakfastItems,
+                                  ),
+                                ),
+                                SizedBox(height: 10.0),
+                                Text('Extras'),
+                                SizedBox(height: 10.0),
+                                MenuTextWidget(value: breakfastExtras),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: <Widget>[
+                                Text('Lunch'),
+                                SizedBox(height: 10.0),
+                                Expanded(
+                                  child: ListView(
+                                    children: lunchItems,
+                                  ),
+                                ),
+                                SizedBox(height: 10.0),
+                                Text('Extras'),
+                                SizedBox(height: 10.0),
+                                MenuTextWidget(value: lunchExtras),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                      child: Center(
-                        child: Text('Lunch'),
+                Column(
+                  children: <Widget>[
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: <Widget>[
+                                Text('Snacks'),
+                                SizedBox(height: 10.0),
+                                Expanded(
+                                  child: ListView(
+                                    children: snacksItems,
+                                  ),
+                                ),
+                                SizedBox(height: 10.0),
+                                Text('Extras'),
+                                SizedBox(height: 10.0),
+                                MenuTextWidget(value: snacksExtras),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: <Widget>[
+                                Text('Dinner'),
+                                SizedBox(height: 10.0),
+                                Expanded(
+                                  child:  ListView(
+                                    children: dinnerItems,
+                                  ),
+                                ),
+                                SizedBox(height: 10.0),
+                                Text('Extras'),
+                                SizedBox(height: 10.0),
+                                MenuTextWidget(value: dinnerExtras),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
-            ),
-            Column(
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                      child: Center(
-                        child: Text('Snacks'),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                      child: Center(
-                        child: Text('Dinner'),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+            );
+          }
         ),
 //      body: ListView(
 //        scrollDirection: Axis.horizontal,

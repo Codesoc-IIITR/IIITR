@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iiitr/home_page.dart';
 import 'package:iiitr/mess_menu_screen.dart';
+import 'package:iiitr/mess_menu_screen_arguments.dart';
 
 import 'course_schedule.dart';
 import 'drawer_items.dart';
@@ -28,7 +29,7 @@ class _MyDrawerState extends State<MyDrawer> {
             ListTile(
               onTap: (){
                 Navigator.pop(context);
-                Navigator.pushNamed(context, MessMenuScreen.id) ;
+                Navigator.pushNamed(context, MessMenuScreen.id,arguments:MessMenuScreenArguments(selectedMess: 'UDH',), ) ;
               },
               title: Text(
                 'UDH',
@@ -37,7 +38,7 @@ class _MyDrawerState extends State<MyDrawer> {
             ListTile(
               onTap: (){
                 Navigator.pop(context);
-                Navigator.pushNamed(context, MessMenuScreen.id) ;
+                Navigator.pushNamed(context, MessMenuScreen.id,arguments: MessMenuScreenArguments(selectedMess: 'LDH',),) ;
               },
               title: Text(
                 'LDH',

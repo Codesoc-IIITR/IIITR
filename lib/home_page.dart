@@ -32,12 +32,12 @@ class _HomePageState extends State<HomePage> {
                 );
               }
             List<AnnouncementTile> tiles = [];
-            var docs =  snap.data.documents;
-            for(var doc in docs)
+            var announcements =  snap.data.documents;
+            for(var announcement in announcements)
               {
                 var tile = AnnouncementTile(
-                  heading: doc['heading'],
-                  details: doc['details'],
+                  heading: announcement['heading'],
+                  details: announcement['details'],
                 );
                 tiles.add(tile);
               }
