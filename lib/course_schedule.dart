@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:iiitr/my_drawer.dart';
 import 'schedule.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 //void main() => runApp(new MyApp());
 class CardItemModel {
@@ -122,15 +123,19 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                       padding: EdgeInsets.only(left: 16.0,top: 8.0,),
                                       margin: EdgeInsets.only(left: 4.0),
                                       color: Colors.black38,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text("${dayList[i][index].startTime} -${dayList[i][index].endTime}"),
-                                          SizedBox(height: 8.0),
-                                          Text("${dayList[i][index].courseTitle}",style: TextStyle(
-                                            fontSize: 21.0
-                                          ),),
-                                        ],
+                                      child: SafeArea(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text("${dayList[i][index].startTime} -${dayList[i][index].endTime}"),
+                                            SizedBox(height: 8.0),
+                                            AutoSizeText('${dayList[i][index].courseTitle}',style: TextStyle(
+                                              fontSize: 22.0
+                                            ),
+                                            maxLines: 3,
+                                            maxFontSize: 22,),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -181,3 +186,5 @@ Center(child:Text("Schedule", style: TextStyle(fontSize: 38.0,color: Colors.whit
 //    return 6;
 //  }
 //}
+
+

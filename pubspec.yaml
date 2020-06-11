@@ -31,7 +31,9 @@ dependencies:
   flip_card: ^0.4.4
   flutter_spinkit: "^4.1.2"
   cloud_firestore: ^0.13.6
+  firebase_database: ^3.1.6
   firebase_core: ^0.4.5
+  auto_size_text: ^2.1.0
 
 dev_dependencies:
   flutter_test:
