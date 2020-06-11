@@ -110,7 +110,7 @@ class _MessMenuScreenState extends State<MessMenuScreen> {
             dinner.forEach((key, value) => dinnerItems.add(MenuTextWidget(value: value)));
 
             return PageView(
-              scrollDirection: Axis.vertical,
+             // scrollDirection: Axis.vertical,
               children: <Widget>[
                 Column(
                   children: <Widget>[
