@@ -1,7 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:iiitr/my_drawer.dart';
-import 'schedule.dart';
+import 'screen_arguments.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 //void main() => runApp(new MyApp());
@@ -9,8 +10,6 @@ class CardItemModel {
   String cardTitle;
   CardItemModel(this.cardTitle);
 }
-
-
 
 class GenerateLines extends StatelessWidget {
   final lines;
@@ -41,6 +40,10 @@ class CourseSchedule extends StatefulWidget {
 }
 
 class _CourseScheduleState extends State<CourseSchedule> {
+  var className = [];
+  var time = [];
+  int classNum = 0;
+
   int _index = 0;
   var cardsList = [
     CardItemModel("Monday"),
@@ -50,9 +53,9 @@ class _CourseScheduleState extends State<CourseSchedule> {
     CardItemModel("Friday")
   ];
 
-
   @override
   Widget build(BuildContext context) {
+    final ScheduleYearScreenArguments args =  ModalRoute.of(context).settings.arguments;
     return new Scaffold(
       drawer: MyDrawer(),
       // backgroundColor:Colors.black,
@@ -79,74 +82,113 @@ class _CourseScheduleState extends State<CourseSchedule> {
                   elevation: 7,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
-                  child: FlipCard(
-                    direction: FlipDirection.HORIZONTAL,
-                    speed: 1000,
-                    onFlipDone: (status) {
-                      print(status);
-                    },
-                    front: Center(
-                      child: Text("${cardsList[i].cardTitle}",
-                          style:
-                              TextStyle(fontSize: 38.0, color: Colors.white)),
-                    ),
-                    back: ListView.builder(
-                      itemCount: dayList[i].length ,
-                      padding: const EdgeInsets.all(8),
-                      itemBuilder: (_, index) {
-                        return Padding(
-                          padding: EdgeInsets.all(8),
-                          child: Card(
-                            elevation: 7,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Row(
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Container(
-                                      child: GenerateLines(lines: [10.0,20.0,30.0,10.0],)
-                                  ),
-                                ),
-                                SizedBox(width: 8.0,),
-                                Expanded(
-                                  child: Container(
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey,
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(8.0),
-                                          bottomLeft: Radius.circular(8.0),
-                                        )
+                  child: StreamBuilder<QuerySnapshot>(
+                    stream: Firestore.instance
+                        .collection('Course Schedule')
+                        .document('${args.selectedYear}')
+                        .collection('${cardsList[i].cardTitle}')
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+
+                      var lectureNames = snapshot.data.documents;
+
+                      for (var lectureName in lectureNames) {
+                        if (lectureName.documentID == 'Classes') {
+                          className = lectureName['className'];
+                          time = lectureName['Time'];
+                        }
+                      }
+
+                      return FlipCard(
+                        direction: FlipDirection.HORIZONTAL,
+                        speed: 1000,
+                        onFlipDone: (status) {
+                          print(status);
+                        },
+                        front: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text("${cardsList[i].cardTitle}",
+                                style: TextStyle(
+                                    fontSize: 38.0, color: Colors.white)),
+                            SizedBox(height: 50.0,),
+                            Text("${args.selectedYear}"),
+                          ],
+                        ),
+                        back: ListView.builder(
+                          itemCount: className.length !=0 ? className.length : 1 ,
+                          padding: const EdgeInsets.all(8),
+                          itemBuilder: (_, index) {
+                            return Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Card(
+                                elevation: 7,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Container(
+                                          child: GenerateLines(
+                                        lines: [10.0, 20.0, 30.0, 10.0],
+                                      )),
                                     ),
-                                    child: Container(
-                                      padding: EdgeInsets.only(left: 16.0,top: 8.0,),
-                                      margin: EdgeInsets.only(left: 4.0),
-                                      color: Colors.black38,
-                                      child: SafeArea(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text("${dayList[i][index].startTime} -${dayList[i][index].endTime}"),
-                                            SizedBox(height: 8.0),
-                                            AutoSizeText('${dayList[i][index].courseTitle}',style: TextStyle(
-                                              fontSize: 22.0
+                                    SizedBox(
+                                      width: 8.0,
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey,
+                                            borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(8.0),
+                                              bottomLeft: Radius.circular(8.0),
+                                            )),
+                                        child: Container(
+                                          padding: EdgeInsets.only(
+                                            left: 16.0,
+                                            top: 8.0,
+                                          ),
+                                          margin: EdgeInsets.only(left: 4.0),
+                                          color: Colors.black38,
+                                          child: SafeArea(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text('${className.length==0 ? "" : time[index]}'),
+                                                SizedBox(height: 8.0),
+                                                AutoSizeText(
+                                                  '${className.length==0 ? "Nothing Scheduled for ${cardsList[i].cardTitle}" : className[index]}',
+                                                  style:
+                                                      TextStyle(fontSize: 22.0),
+                                                  maxLines: 3,
+                                                  maxFontSize: 22,
+                                                ),
+                                              ],
                                             ),
-                                            maxLines: 3,
-                                            maxFontSize: 22,),
-                                          ],
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
+                                    SizedBox(
+                                      width: 8.0,
+                                    )
+                                  ],
                                 ),
-                                SizedBox(width: 8.0,)
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
                   ),
                 ),
               );
@@ -157,34 +199,4 @@ class _CourseScheduleState extends State<CourseSchedule> {
     );
   }
 }
-
-/*
-Center(child:Text("Schedule", style: TextStyle(fontSize: 38.0,color: Colors.white)),)*/
-
-//String today = DateTimeFormat.format(DateTime.now(), format: 'l');
-//
-//int Today(today){
-//  if (today == DateTime.monday){
-//    return 0;
-//  }
-//  else if(today == DateTime.tuesday){
-//    return 1;
-//  }
-//  else if(today == DateTime.wednesday){
-//    return 2;
-//  }
-//  else if(today == DateTime.thursday){
-//    return 3;
-//  }
-//  else if(today == DateTime.friday){
-//    return 4;
-//  }
-//  else if(today == DateTime.saturday){
-//    return 5;
-//  }
-//  else if(today == DateTime.sunday){
-//    return 6;
-//  }
-//}
-
 

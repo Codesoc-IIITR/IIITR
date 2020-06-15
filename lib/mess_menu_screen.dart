@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iiitr/mess_menu_screen_arguments.dart';
+import 'package:iiitr/screen_arguments.dart';
 import 'package:iiitr/my_drawer.dart';
 
 import 'menu_text_widget.dart';

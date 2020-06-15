@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iiitr/home_page.dart';
 import 'package:iiitr/mess_menu_screen.dart';
-import 'package:iiitr/mess_menu_screen_arguments.dart';
+import 'package:iiitr/screen_arguments.dart';
 
 import 'course_schedule.dart';
 import 'drawer_items.dart';
@@ -86,7 +86,7 @@ class _MyDrawerState extends State<MyDrawer> {
             ListTile(
               onTap: (){
                 Navigator.pop(context);
-                Navigator.pushNamed(context, CourseSchedule.id) ;
+                Navigator.pushNamed(context, CourseSchedule.id , arguments: ScheduleYearScreenArguments(selectedYear: 'First Year'),) ;
               },
               title: Text(
                 'First Year',
@@ -95,7 +95,7 @@ class _MyDrawerState extends State<MyDrawer> {
             ListTile(
               onTap: (){
                 Navigator.pop(context);
-                Navigator.pushNamed(context, CourseSchedule.id) ;
+                Navigator.pushNamed(context, CourseSchedule.id , arguments: ScheduleYearScreenArguments(selectedYear: 'Second Year'),) ;
               },
               title: Text(
                 'Second Year',
@@ -104,7 +104,7 @@ class _MyDrawerState extends State<MyDrawer> {
             ListTile(
               onTap: (){
                 Navigator.pop(context);
-                Navigator.pushNamed(context, CourseSchedule.id) ;
+                Navigator.pushNamed(context, CourseSchedule.id , arguments: ScheduleYearScreenArguments(selectedYear: 'Third Year'),) ;
               },
               title: Text(
                 'Third Year',
@@ -113,7 +113,7 @@ class _MyDrawerState extends State<MyDrawer> {
             ListTile(
               onTap: (){
                 Navigator.pop(context);
-                Navigator.pushNamed(context, CourseSchedule.id) ;
+                Navigator.pushNamed(context, CourseSchedule.id , arguments: ScheduleYearScreenArguments(selectedYear: 'Fourth Year'),) ;
               },
               title: Text(
                 'Fourth Year',

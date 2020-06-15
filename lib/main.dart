@@ -3,6 +3,7 @@ import 'package:iiitr/course_schedule.dart';
 import 'package:iiitr/mess_menu_screen.dart';
 import 'home_page.dart';
 import 'splash_screen.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
