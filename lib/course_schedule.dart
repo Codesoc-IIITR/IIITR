@@ -169,7 +169,7 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                                   '${className.length==0 ? "Nothing Scheduled for ${cardsList[i].cardTitle}" : className[index]}',
                                                   style:
                                                       TextStyle(fontSize: 22.0),
-                                                  maxLines: 3,
+                                                  maxLines: 2,
                                                   maxFontSize: 22,
                                                 ),
                                               ],
