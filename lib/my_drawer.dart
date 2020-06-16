@@ -153,21 +153,21 @@ class _MyDrawerState extends State<MyDrawer> {
                   backgroundColor: Colors.white,
                   child: Icon(
                     Icons.school,
-                    color: Colors.blue,
-                    size: 60.0,
+                    color: Colors.black,
+                    size: 75.0,
                   ),
                   // backgroundImage: AssetImage('images/temporary_logo.png'),
-                  radius: 40.0,
+                  radius: 60.0,
                 ),
                 SizedBox(
                   height: 15.0,
                 ),
-                Text(
-                  'IIITR Dashboard',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                  ),
-                ),
+                // Text(
+                //   'IIITR Dashboard',
+                //   style: TextStyle(
+                //     fontSize: 30.0,
+                //   ),
+                // ),
               ],
             ),
 

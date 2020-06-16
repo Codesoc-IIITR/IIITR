@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
         drawer: MyDrawer(),
         appBar: AppBar(
           title: Text(
-            'IIIT Dashboard',
+            'Home',
           ),
         ),
         body: StreamBuilder(
