@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iiitr/bus_schedule.dart';
 import 'package:iiitr/home_page.dart';
 import 'package:iiitr/mess_menu_screen.dart';
 import 'package:iiitr/screen_arguments.dart';
@@ -57,16 +58,46 @@ class _MyDrawerState extends State<MyDrawer> {
         body: Column(
           children: <Widget>[
             ListTile(
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(
+                  context,
+                  BusSchedule.id,
+                  arguments: BusRouteScreenArguments(
+                    selectedRoute: 'Lingampally',
+                  ),
+                );
+              },
               title: Text(
                 'Lingampally',
               ),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(
+                  context,
+                  BusSchedule.id,
+                  arguments: BusRouteScreenArguments(
+                    selectedRoute: 'Sangareddy',
+                  ),
+                );
+              },
               title: Text(
                 'Sangareddy',
               ),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(
+                  context,
+                  BusSchedule.id,
+                  arguments: BusRouteScreenArguments(
+                    selectedRoute: 'Main Gate',
+                  ),
+                );
+              },
               title: Text(
                 'Main Gate',
               ),

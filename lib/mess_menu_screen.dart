@@ -65,52 +65,50 @@ class _MessMenuScreenState extends State<MessMenuScreen> {
         body: StreamBuilder<QuerySnapshot>(
           stream: Firestore.instance.collection('${args.selectedMess}').document('$dropDownValue').collection('meals').snapshots(),
           builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting)
+              return Center(
+                child: CircularProgressIndicator(),
+              );
 
-            if(!snapshot.hasData)
-            {
+            if (!snapshot.hasData) {
               return Center(
                 child: CircularProgressIndicator(),
               );
             }
             var meals = snapshot.data.documents;
-            for(var meal in meals)
-            {
-
-              if(meal.documentID == 'breakfast')
-                {
-                  breakfast = meal['menu'];
-                  breakfastExtras = meal['extras'];
-                }
-              else if(meal.documentID == 'lunch')
-                {
-                  lunch = meal['menu'];
-                  lunchExtras = meal['extras'];
-                }
-              else if(meal.documentID == 'snacks')
-               {
-                 snacks = meal['menu'];
-                 snacksExtras = meal['extras'];
-               }
-              else if(meal.documentID == 'dinner')
-                {
-                  dinner = meal['menu'];
-                  dinnerExtras = meal['extras'];
-                }
+            for (var meal in meals) {
+              if (meal.documentID == 'breakfast') {
+                breakfast = meal['menu'];
+                breakfastExtras = meal['extras'];
+              } else if (meal.documentID == 'lunch') {
+                lunch = meal['menu'];
+                lunchExtras = meal['extras'];
+              } else if (meal.documentID == 'snacks') {
+                snacks = meal['menu'];
+                snacksExtras = meal['extras'];
+              } else if (meal.documentID == 'dinner') {
+                dinner = meal['menu'];
+                dinnerExtras = meal['extras'];
+              }
             }
             List<MenuTextWidget> breakfastItems = [];
-            breakfast.forEach((key, value) => breakfastItems.add(MenuTextWidget(value: value)));
+            breakfast.forEach((key, value) =>
+                breakfastItems.add(MenuTextWidget(value: value)));
 
             List<MenuTextWidget> lunchItems = [];
-            lunch.forEach((key, value) => lunchItems.add(MenuTextWidget(value: value)));
+            lunch.forEach(
+                (key, value) => lunchItems.add(MenuTextWidget(value: value)));
 
             List<MenuTextWidget> snacksItems = [];
-            snacks.forEach((key, value) => snacksItems.add(MenuTextWidget(value: value)));
+            snacks.forEach(
+                (key, value) => snacksItems.add(MenuTextWidget(value: value)));
 
             List<MenuTextWidget> dinnerItems = [];
-            dinner.forEach((key, value) => dinnerItems.add(MenuTextWidget(value: value)));
+            dinner.forEach(
+                (key, value) => dinnerItems.add(MenuTextWidget(value: value)));
 
             return PageView(
-             // scrollDirection: Axis.vertical,
+              // scrollDirection: Axis.vertical,
               children: <Widget>[
                 Column(
                   children: <Widget>[

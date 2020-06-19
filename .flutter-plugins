@@ -1,6 +1,11 @@
 # This is a generated file; do not edit or check into version control.
-cloud_firestore=D:\\Backup\\Setups\\flutter_windows_v1.12.13+hotfix.8-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore-0.13.6\\
-cloud_firestore_web=D:\\Backup\\Setups\\flutter_windows_v1.12.13+hotfix.8-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore_web-0.1.1+2\\
-firebase_core=D:\\Backup\\Setups\\flutter_windows_v1.12.13+hotfix.8-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.5\\
-firebase_core_web=D:\\Backup\\Setups\\flutter_windows_v1.12.13+hotfix.8-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.1.1+2\\
-firebase_database=D:\\Backup\\Setups\\flutter_windows_v1.12.13+hotfix.8-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_database-3.1.6\\
+cloud_firestore=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore-0.13.6\\
+cloud_firestore_web=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore_web-0.1.1+2\\
+firebase_core=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.5\\
+firebase_core_web=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.1.1+2\\
+firebase_database=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_database-3.1.6\\
+flutter_plugin_android_lifecycle=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-1.0.8\\
+geolocator=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\geolocator-5.3.2+2\\
+google_api_availability=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_api_availability-2.0.4\\
+google_maps_flutter=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_maps_flutter-0.5.28+1\\
+location_permissions=D:\\Courses\\Programming\\flutter\\flutter sdk\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\location_permissions-3.0.0+1\\

@@ -34,6 +34,12 @@ dependencies:
   firebase_database: ^3.1.6
   firebase_core: ^0.4.5
   auto_size_text: ^2.1.0
+  toggle_switch: "^0.1.4"
+  google_maps_flutter: ^0.5.11+1
+  maps_curved_line: ^0.1.1
+  flutter_google_maps: ^3.7.1
+  geolocator: ^5.3.2+2
+
 
 dev_dependencies:
   flutter_test:
