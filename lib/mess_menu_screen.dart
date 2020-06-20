@@ -92,20 +92,24 @@ class _MessMenuScreenState extends State<MessMenuScreen> {
               }
             }
             List<MenuTextWidget> breakfastItems = [];
-            breakfast.forEach((key, value) =>
-                breakfastItems.add(MenuTextWidget(value: value)));
-
             List<MenuTextWidget> lunchItems = [];
-            lunch.forEach(
-                (key, value) => lunchItems.add(MenuTextWidget(value: value)));
-
             List<MenuTextWidget> snacksItems = [];
-            snacks.forEach(
-                (key, value) => snacksItems.add(MenuTextWidget(value: value)));
-
             List<MenuTextWidget> dinnerItems = [];
-            dinner.forEach(
-                (key, value) => dinnerItems.add(MenuTextWidget(value: value)));
+           try
+          {
+
+            breakfast.forEach((key, value) => breakfastItems.add(MenuTextWidget(value: value)));
+
+            lunch.forEach((key, value) => lunchItems.add(MenuTextWidget(value: value)));
+
+            snacks.forEach((key, value) => snacksItems.add(MenuTextWidget(value: value)));
+
+            dinner.forEach((key, value) => dinnerItems.add(MenuTextWidget(value: value)));
+          }
+          catch(e)
+            {
+              print(e.toString());
+            }
 
             return PageView(
               // scrollDirection: Axis.vertical,
