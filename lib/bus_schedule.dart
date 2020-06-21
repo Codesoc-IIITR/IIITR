@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:iiitr/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:iiitr/my_drawer.dart';
 import 'package:toggle_switch/toggle_switch.dart';
@@ -136,6 +137,14 @@ class _BusScheduleState extends State<BusSchedule> {
 
   QuerySnapshot cache;
 
+  Future<bool> backPressed() async {
+    return await Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) => HomePage()),
+      ModalRoute.withName(HomePage.id),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     _point1 = _iITHCord;
@@ -167,203 +176,226 @@ class _BusScheduleState extends State<BusSchedule> {
 
     prepareMarkers();
 
-    return Scaffold(
-      drawer: MyDrawer(),
-      appBar: AppBar(
-        title: new Text(
-          "Bus Schedule",
-          style: TextStyle(fontSize: 25.0),
+    return WillPopScope(
+      onWillPop: backPressed,
+      child: Scaffold(
+        drawer: MyDrawer(),
+        appBar: AppBar(
+          title: new Text(
+            "Bus Schedule",
+            style: TextStyle(fontSize: 25.0),
+          ),
+          // backgroundColor:Colors.black,
+          centerTitle: true,
         ),
-        // backgroundColor:Colors.black,
-        centerTitle: true,
-      ),
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 20.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              ToggleSwitch(
-                minWidth: 90.0,
-                initialLabelIndex: 0,
-                activeBgColor: Colors.indigo,
-                activeTextColor: Colors.white,
-                inactiveBgColor: Colors.grey,
-                inactiveTextColor: Colors.grey[900],
-                labels: ['WeekDay', 'WeekEnd'],
-                onToggle: (index) {
-                  r = index;
-                  print('switched to: $index');
-                  (context as Element).reassemble();
-                },
-              ),
-              SizedBox(width: 20.0),
-            ],
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          Center(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-              child: PageView.builder(
-                itemCount: 2,
-                itemBuilder: (_, i) {
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(35.0),
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                routeHeading(i),
-                                style: TextStyle(fontSize: 20),
-                              )
-                            ],
+        body: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 20.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                ToggleSwitch(
+                  minWidth: 90.0,
+                  initialLabelIndex: 0,
+                  activeBgColor: Colors.indigo,
+                  activeTextColor: Colors.white,
+                  inactiveBgColor: Colors.grey,
+                  inactiveTextColor: Colors.grey[900],
+                  labels: ['WeekDay', 'WeekEnd'],
+                  onToggle: (index) {
+                    r = index;
+                    print('switched to: $index');
+                    (context as Element).reassemble();
+                  },
+                ),
+                SizedBox(width: 20.0),
+              ],
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Center(
+              child: SizedBox(
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height * 0.3,
+                child: PageView.builder(
+                  itemCount: 2,
+                  itemBuilder: (_, i) {
+                    return Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(35.0),
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  routeHeading(i),
+                                  style: TextStyle(fontSize: 20),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                        StreamBuilder<QuerySnapshot>(
-                            initialData: cache,
-                            stream: Firestore.instance
-                                .collection('Bus Schedule')
-                                .snapshots(),
-                            builder: (context, snapshot) {
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: CircularProgressIndicator(),
-                                );
-                              }
-                              cache = snapshot.data;
-
-                              var cityRoutes = snapshot.data.documents;
-
-                              for (var cityRoute in cityRoutes) {
-                                if (cityRoute.documentID ==
-                                    '${args.selectedRoute}') {
-                                  fromIITH = cityRoute['from IITH'];
-                                  toIITH = cityRoute['to IITH'];
-                                  fromIITHWeekend =
-                                      cityRoute['from IITH weekend'];
-                                  toIITHWeekend = cityRoute['to IITH weekend'];
+                          StreamBuilder<QuerySnapshot>(
+                              initialData: cache,
+                              stream: Firestore.instance
+                                  .collection('Bus Schedule')
+                                  .snapshots(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: CircularProgressIndicator(),
+                                  );
                                 }
-                              }
+                                cache = snapshot.data;
+
+                                var cityRoutes = snapshot.data.documents;
+
+                                for (var cityRoute in cityRoutes) {
+                                  if (cityRoute.documentID ==
+                                      '${args.selectedRoute}') {
+                                    fromIITH = cityRoute['from IITH'];
+                                    toIITH = cityRoute['to IITH'];
+                                    fromIITHWeekend =
+                                    cityRoute['from IITH weekend'];
+                                    toIITHWeekend =
+                                    cityRoute['to IITH weekend'];
+                                  }
+                                }
 
 //
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.2,
-                                    child: ListView.builder(
-                                      padding: EdgeInsets.all(4.0),
-                                      itemCount: fromORto(i, r).length,
-                                      itemBuilder: (_, p) {
-                                        return Padding(
-                                          padding: const EdgeInsets.all(2.0),
-                                          child: Container(
-                                            height: 35,
-                                            color: Colors.black54,
-                                            child: Center(
-                                                child: Text(
-                                              '${fromORto(i, r)[p]}',
-                                              style: TextStyle(fontSize: 16),
-                                            )),
-                                          ),
-                                        );
-                                      },
+                                return Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    SizedBox(
+                                      height: MediaQuery
+                                          .of(context)
+                                          .size
+                                          .height *
+                                          0.2,
+                                      child: ListView.builder(
+                                        padding: EdgeInsets.all(4.0),
+                                        itemCount: fromORto(i, r).length,
+                                        itemBuilder: (_, p) {
+                                          return Padding(
+                                            padding: const EdgeInsets.all(2.0),
+                                            child: Container(
+                                              height: 35,
+                                              color: Colors.black54,
+                                              child: Center(
+                                                  child: Text(
+                                                    '${fromORto(i, r)[p]}',
+                                                    style: TextStyle(
+                                                        fontSize: 16),
+                                                  )),
+                                            ),
+                                          );
+                                        },
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              );
-                            })
-                      ],
-                    ),
-                    color: Colors.white12,
-                  );
-                },
+                                  ],
+                                );
+                              })
+                        ],
+                      ),
+                      color: Colors.white12,
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Center(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-              width: MediaQuery.of(context).size.width * 0.98,
+            SizedBox(
+              height: 10.0,
+            ),
+            Center(
+              child: SizedBox(
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height * 0.3,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width * 0.98,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  child: GoogleMap(
+                    scrollGesturesEnabled: false,
+                    liteModeEnabled: false,
+                    rotateGesturesEnabled: false,
+                    polylines: _polylines,
+                    markers: _markers,
+                    onMapCreated: onMapCreated,
+                    initialCameraPosition: CameraPosition(
+                        target: suitableCentre(_point2),
+                        zoom: suitableZoom(_point2),
+                        tilt: 90),
+                    mapType: MapType.normal,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            SizedBox(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.1,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width * 0.99,
               child: Card(
+                elevation: 5,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25.0),
                 ),
-                child: GoogleMap(
-                  scrollGesturesEnabled: false,
-                  liteModeEnabled: false,
-                  rotateGesturesEnabled: false,
-                  polylines: _polylines,
-                  markers: _markers,
-                  onMapCreated: onMapCreated,
-                  initialCameraPosition: CameraPosition(
-                      target: suitableCentre(_point2),
-                      zoom: suitableZoom(_point2),
-                      tilt: 90),
-                  mapType: MapType.normal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(Icons.directions_car),
+                        Text(
+                          distTimCar(_point2),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 35,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(Icons.directions_walk),
+                        Text(
+                          distTimWalk(_point2),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
+                color: Colors.white12,
               ),
             ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.1,
-            width: MediaQuery.of(context).size.width * 0.99,
-            child: Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25.0),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(Icons.directions_car),
-                      Text(
-                        distTimCar(_point2),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: 35,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(Icons.directions_walk),
-                      Text(
-                        distTimWalk(_point2),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              color: Colors.white12,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

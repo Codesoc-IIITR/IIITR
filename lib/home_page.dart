@@ -12,10 +12,39 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  Future<bool> _onBackPressed() {
+    return showDialog(
+          context: context,
+          builder: (context) => new AlertDialog(
+            title: new Text('Are you sure?'),
+            content: new Text('Do you want to exit an App'),
+            actions: <Widget>[
+              new GestureDetector(
+                onTap: () => Navigator.of(context).pop(false),
+                child: Text(
+                  "NO",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              SizedBox(height: 40),
+              new GestureDetector(
+                onTap: () => Navigator.of(context).pop(true),
+                child: Text(
+                  "YES",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: Scaffold(
         drawer: MyDrawer(),
         appBar: AppBar(
           title: Text(
@@ -23,31 +52,31 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         body: StreamBuilder(
-          stream: Firestore.instance.collection('announcement').orderBy('time',descending: true).snapshots(),
-          builder: (context, snap) {
-            if(!snap.hasData)
-              {
+            stream: Firestore.instance
+                .collection('announcement')
+                .orderBy('time', descending: true)
+                .snapshots(),
+            builder: (context, snap) {
+              if (!snap.hasData) {
                 return Center(
                   child: CircularProgressIndicator(),
                 );
               }
-            List<AnnouncementTile> tiles = [];
-            var announcements =  snap.data.documents;
-            for(var announcement in announcements)
-              {
+              List<AnnouncementTile> tiles = [];
+              var announcements = snap.data.documents;
+              for (var announcement in announcements) {
                 var tile = AnnouncementTile(
                   heading: announcement['heading'],
                   details: announcement['details'],
                 );
                 tiles.add(tile);
               }
-            return ListView(
-              children: tiles,
-            );
-          }
-            ),
+              return ListView(
+                children: tiles,
+              );
+            }),
+      ),
     );
-        }
-
   }
+}
 
