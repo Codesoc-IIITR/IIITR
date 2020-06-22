@@ -10,7 +10,7 @@ class MenuTextWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Icon(Icons.crop_square,
+          Icon(Icons.stop,
             size: 20.0,
           ),
           SizedBox(width: 10.0),

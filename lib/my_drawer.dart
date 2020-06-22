@@ -184,7 +184,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   backgroundColor: Colors.white,
                   child: Icon(
                     Icons.school,
-                    color: Colors.black,
+                    color: Colors.blue,
                     size: 75.0,
                   ),
                   // backgroundImage: AssetImage('images/temporary_logo.png'),
