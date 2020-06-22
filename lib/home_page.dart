@@ -26,15 +26,15 @@ class _HomePageState extends State<HomePage> {
             onTap: () => Navigator.of(context).pop(false),
             child: Text(
               "NO",
-              style: TextStyle(fontSize: 20),
-            ),
+                  style: TextStyle(fontSize: 15),
+                ),
           ),
           SizedBox(height: 40),
           new GestureDetector(
             onTap: () => exit(0),
             child: Text(
               "YES",
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 15),
             ),
           ),
         ],
