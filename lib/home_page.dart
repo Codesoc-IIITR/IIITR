@@ -1,11 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:iiitr/announcement_tile.dart';
 import 'package:iiitr/my_drawer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
 class HomePage extends StatefulWidget {
- static  const String id = 'HomeScreen';
+  static const String id = 'HomeScreen';
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -14,29 +17,29 @@ class _HomePageState extends State<HomePage> {
   @override
   Future<bool> _onBackPressed() {
     return showDialog(
-          context: context,
-          builder: (context) => new AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to exit an App'),
-            actions: <Widget>[
-              new GestureDetector(
-                onTap: () => Navigator.of(context).pop(false),
-                child: Text(
-                  "NO",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              SizedBox(height: 40),
-              new GestureDetector(
-                onTap: () => Navigator.of(context).pop(true),
-                child: Text(
-                  "YES",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-            ],
+      context: context,
+      builder: (context) => new AlertDialog(
+        title: new Text('Are you sure?'),
+        content: new Text('Do you want to exit an App'),
+        actions: <Widget>[
+          new GestureDetector(
+            onTap: () => Navigator.of(context).pop(false),
+            child: Text(
+              "NO",
+              style: TextStyle(fontSize: 20),
+            ),
           ),
-        ) ??
+          SizedBox(height: 40),
+          new GestureDetector(
+            onTap: () => exit(0),
+            child: Text(
+              "YES",
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+        ],
+      ),
+    ) ??
         false;
   }
 
