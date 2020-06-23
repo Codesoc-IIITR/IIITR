@@ -221,6 +221,7 @@ class _MyDrawerState extends State<MyDrawer> {
             color: Colors.white30,
           ),
           ExpansionPanelList(
+            canTapOnHeader: true,
             expansionCallback: (int index,bool isExpanded){
               setState(() {
                 drawerItems[index].isExpanded = !isExpanded;
