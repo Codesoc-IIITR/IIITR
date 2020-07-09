@@ -1,11 +1,17 @@
 # This is a generated file; do not edit or check into version control.
-cloud_firestore=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore-0.13.6\\
-cloud_firestore_web=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore_web-0.1.1+2\\
-firebase_core=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.5\\
-firebase_core_web=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.1.1+2\\
-firebase_database=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_database-3.1.6\\
-flutter_plugin_android_lifecycle=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-1.0.8\\
-geolocator=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\geolocator-5.3.2+2\\
-google_api_availability=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_api_availability-2.0.4\\
-google_maps_flutter=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_maps_flutter-0.5.28+1\\
-location_permissions=C:\\src\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\location_permissions-3.0.0+1\\
+cloud_firestore=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.13.6/
+cloud_firestore_web=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.1.1+2/
+firebase_core=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.4.5/
+firebase_core_web=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.1.1+2/
+firebase_database=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-3.1.6/
+firebase_messaging=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-6.0.16/
+flutter_plugin_android_lifecycle=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.8/
+geolocator=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-5.3.2+2/
+google_api_availability=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/google_api_availability-2.0.4/
+google_maps_flutter=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-0.5.28+1/
+location_permissions=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/location_permissions-3.0.0+1/
+path_provider_linux=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-0.0.1+2/
+shared_preferences=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.8/
+shared_preferences_linux=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_linux-0.0.2+1/
+shared_preferences_macos=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+10/
+shared_preferences_web=/home/jatin/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+7/

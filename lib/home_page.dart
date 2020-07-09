@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:iiitr/announcement_tile.dart';
 import 'package:iiitr/my_drawer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:iiitr/push_notification_manager.dart';
 
 class HomePage extends StatefulWidget {
   static const String id = 'HomeScreen';
@@ -12,8 +13,8 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
-
 class _HomePageState extends State<HomePage> {
+  PushNotificationsManager notificationManager = PushNotificationsManager();
   @override
   Future<bool> _onBackPressed() {
     return showDialog(
@@ -45,6 +46,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    notificationManager.init();
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(

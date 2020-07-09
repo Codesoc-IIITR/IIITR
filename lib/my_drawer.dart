@@ -221,7 +221,6 @@ class _MyDrawerState extends State<MyDrawer> {
             color: Colors.white30,
           ),
           ExpansionPanelList(
-            canTapOnHeader: true,
             expansionCallback: (int index,bool isExpanded){
               setState(() {
                 drawerItems[index].isExpanded = !isExpanded;
@@ -229,6 +228,7 @@ class _MyDrawerState extends State<MyDrawer> {
             },
             children: drawerItems.map((DrawerItem item){
               return  ExpansionPanel(
+                canTapOnHeader: true,
                 headerBuilder: (BuildContext context,bool isExpanded){
                   return ListTile(
                     leading: item.leadingIcon,
