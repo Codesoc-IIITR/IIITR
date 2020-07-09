@@ -1,16 +1,22 @@
-# iiitr
+# iiitr dashboard
 
-A new Flutter project.
+It is an android app exclusively for IIIT Raichur.It includes mess menu,bus schedule and course schedule of IIIT Raichur.
 
-## Getting Started
+![](screenshots/WhatsApp%20Image%202020-07-09%20at%2011.11.57%20PM%20(6).jpeg)
 
-This project is a starting point for a Flutter application.
+![](screenshots/WhatsApp%20Image%202020-07-09%20at%2011.11.57%20PM%20(4).jpeg)
 
-A few resources to get you started if this is your first Flutter project:
+![](screenshots/WhatsApp%20Image%202020-07-09%20at%2011.11.57%20PM%20(2).jpeg)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![](WhatsApp%20Image%202020-07-09%20at%2011.11.57%20PM%20(3).jpeg)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](screenshots/WhatsApp%20Image%202020-07-09%20at%2011.11.57%20PM%20(5).jpeg)
+
+![](screenshots/WhatsApp%20Image%202020-07-09%20at%2011.11.57%20PM.jpeg)
+
+![]()
+
+![]()
+
+
+
