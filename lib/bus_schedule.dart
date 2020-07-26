@@ -227,7 +227,11 @@ class _BusScheduleState extends State<BusSchedule> {
                   itemBuilder: (_, i) {
                     return Card(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(35.0),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(35),
+                            topRight: Radius.circular(35),
+                            bottomLeft: Radius.circular(2),
+                            bottomRight: Radius.circular(2)),
                       ),
                       child: Column(
                         children: <Widget>[
@@ -270,7 +274,6 @@ class _BusScheduleState extends State<BusSchedule> {
                                   }
                                 }
 
-//
                                 return Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
@@ -279,7 +282,7 @@ class _BusScheduleState extends State<BusSchedule> {
                                           .of(context)
                                           .size
                                           .height *
-                                          0.2,
+                                          0.18,
                                       child: ListView.builder(
                                         padding: EdgeInsets.all(4.0),
                                         itemCount: fromORto(i, r).length,
@@ -312,7 +315,10 @@ class _BusScheduleState extends State<BusSchedule> {
               ),
             ),
             SizedBox(
-              height: 10.0,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.01,
             ),
             Center(
               child: SizedBox(
@@ -345,7 +351,10 @@ class _BusScheduleState extends State<BusSchedule> {
               ),
             ),
             SizedBox(
-              height: 10.0,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.01,
             ),
             SizedBox(
               height: MediaQuery

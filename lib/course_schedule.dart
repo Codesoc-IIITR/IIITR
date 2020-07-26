@@ -377,16 +377,20 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                 args.selectedYear == 'First Year') {
                               return Row(
                                 children: <Widget>[
-                                  FlatButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _checkPendingNotificationRequests(
-                                            context);
-                                      });
-                                    },
-                                    child: Text("Pending Notifications"),
-                                    color: Colors.black,
-                                    textColor: Colors.white,
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.4,
+                                    child: FlatButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _checkPendingNotificationRequests(
+                                              context);
+                                        });
+                                      },
+                                      child: Text("Pending Notifications"),
+                                      color: Colors.black,
+                                      textColor: Colors.white,
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 30.0,
@@ -394,13 +398,13 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                   LiteRollingSwitch(
                                     //initial value
                                     value: snapshot.data,
-                                    textOn: 'All Enabled',
+                                    textOn: 'All\nEnabled',
                                     textOff: 'Enable\nby Choice',
                                     colorOn: Colors.greenAccent[700],
                                     colorOff: Colors.redAccent[700],
                                     iconOn: Icons.notifications_active,
                                     iconOff: Icons.notifications,
-                                    textSize: 16.0,
+                                    textSize: 17.0,
                                     onChanged: (bool state) {
                                       WidgetsBinding.instance
                                           .addPostFrameCallback((_) {
@@ -431,11 +435,17 @@ class _CourseScheduleState extends State<CourseSchedule> {
               ],
             ),
             SizedBox(
-              height: 30.0,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.05,
             ),
             Center(
               child: SizedBox(
-                height: 550, // card height
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height * 0.7, // card height
                 child: PageView.builder(
                   itemCount: 5,
                   controller: PageController(viewportFraction: 0.7),
