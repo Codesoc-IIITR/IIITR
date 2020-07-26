@@ -39,8 +39,15 @@ dependencies:
   maps_curved_line: ^0.1.1
   flutter_google_maps: ^3.7.1
   geolocator: ^5.3.2+2
-  firebase_messaging: ^6.0.16
+  flutter_local_notifications: ^1.4.4+2
+  intl: ^0.16.1
+  lite_rolling_switch: ^0.1.1
   shared_preferences: ^0.5.8
+  firebase_messaging: ^6.0.16
+  http: ^0.12.0+4
+  path_provider: ^1.6.1
+  rxdart: ^0.23.1
+  overlay_support: ^1.0.5
 
 
 dev_dependencies:
