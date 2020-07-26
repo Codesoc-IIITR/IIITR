@@ -411,7 +411,8 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                             toast(
                                                 'Notifications are Enabled for All Classes Scheduled');
                                           } else if (state == false) {
-                                            toast('Notifications are Disabled');
+                                            toast(
+                                                'Enable by Choice is Enabled for Notifications');
                                           }
                                         });
                                       });
