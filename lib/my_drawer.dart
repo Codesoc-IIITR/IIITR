@@ -180,15 +180,10 @@ class _MyDrawerState extends State<MyDrawer> {
                 SizedBox(
                   width: double.infinity,
                 ),
-                CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Icon(
-                    Icons.school,
-                    color: Colors.blue,
-                    size: 75.0,
-                  ),
-                  // backgroundImage: AssetImage('images/temporary_logo.png'),
-                  radius: 60.0,
+                Image(
+                  image: AssetImage("images/Icon.png"),
+                  //width: 10.0,
+                  height: MediaQuery.of(context).size.height * 0.14,
                 ),
                 SizedBox(
                   height: 15.0,
