@@ -72,18 +72,18 @@ class _SplashScreenState extends State<SplashScreen> {
                           height: 20.0,
                         ),
                         Text(
-                          "IIITR Dashboard",
-                          style: TextStyle(
-                            color: Colors.white30,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30.0,
-                            shadows: <Shadow>[
-                              Shadow(
-                                offset: Offset(2.5, 2.5),
-                                blurRadius: 2.0,
-                                color: Color.fromARGB(255, 0, 0, 0),
-                              ),
-                            ],),
+                          "IIITR Insights",
+                        style: TextStyle(
+                          color: Colors.white30,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30.0,
+                          shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(2.5, 2.5),
+                              blurRadius: 2.0,
+                              color: Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ],),
                         )
 //                        SizedBox(
 //                          height: 10.0,

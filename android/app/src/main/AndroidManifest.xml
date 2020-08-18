@@ -15,7 +15,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="iiitr"
+        android:label="IIITR Insights"
         android:icon="@mipmap/ic_launcher">
 
         <meta-data

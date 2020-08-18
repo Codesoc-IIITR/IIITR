@@ -181,7 +181,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   width: double.infinity,
                 ),
                 Image(
-                  image: AssetImage("images/Icon.png"),
+                  image: AssetImage("images/white_logo.png"),
                   //width: 10.0,
                   height: MediaQuery.of(context).size.height * 0.14,
                 ),
