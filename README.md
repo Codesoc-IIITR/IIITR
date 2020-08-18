@@ -4,8 +4,10 @@
 <img src="https://img.shields.io/badge/Backend-firebase-orange">
 <img src="https://img.shields.io/badge/Language-dart-green">
 </p>
-<h2>A general utility app for students of <a href="https://iiitr.ac.in/">Indian Institute of technology, Raichur.</a><br>
-<p>
+<h2>A general utility app for students of <a href="https://iiitr.ac.in/">Indian Institute of technology, Raichur.</a></h2><br>
+  
+
+<p align="center">
 <img src="screenshots/WhatsApp%20Image%202020-07-09%20at%2011.11.57%20PM%20(6).jpeg" width=250 height=575>
 <img src="screenshots/WhatsApp%20Image%202020-07-09%20at%2011.11.57%20PM%20(4).jpeg" width=250 height=575>
 <img src="screenshots/WhatsApp%20Image%202020-07-09%20at%2011.11.57%20PM%20(5).jpeg" width=250 height=575>
