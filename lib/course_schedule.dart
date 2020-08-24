@@ -103,7 +103,7 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CourseSchedule(),
+                    builder: (context) => MyApp(),
                   ),
                 );
               },
@@ -118,7 +118,7 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
     selectNotificationSubject.stream.listen((String payload) async {
       await Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => CourseSchedule()),
+        MaterialPageRoute(builder: (context) => MyApp()),
       );
     });
   }
@@ -396,12 +396,13 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                     width: 30.0,
                                   ),
                                   LiteRollingSwitch(
-                                    //initial value
+//initial value
                                     value: snapshot.data,
                                     textOn: 'All\nEnabled',
                                     textOff: 'Enable\nby Choice',
                                     colorOn: Colors.greenAccent[700],
                                     colorOff: Colors.redAccent[700],
+                                    animationDuration: Duration(seconds: 1),
                                     iconOn: Icons.notifications_active,
                                     iconOff: Icons.notifications,
                                     textSize: 17.0,
@@ -686,3 +687,4 @@ Future<void> _checkPendingNotificationRequests(context) async {
 Future<void> _cancelNotification(int id) async {
   await flutterLocalNotificationsPlugin.cancel(id);
 }
+
