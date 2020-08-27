@@ -67,8 +67,6 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
   void initState() {
     super.initState();
     _requestIOSPermissions();
-    _configureDidReceiveLocalNotificationSubject();
-    _configureSelectNotificationSubject();
   }
 
   void _requestIOSPermissions() {
@@ -80,54 +78,6 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
           badge: true,
           sound: true,
         );
-  }
-
-  void _configureDidReceiveLocalNotificationSubject() {
-    didReceiveLocalNotificationSubject.stream
-        .listen((ReceivedNotification receivedNotification) async {
-      await showDialog(
-        context: context,
-        builder: (BuildContext context) => CupertinoAlertDialog(
-          title: receivedNotification.title != null
-              ? Text(receivedNotification.title)
-              : null,
-          content: receivedNotification.body != null
-              ? Text(receivedNotification.body)
-              : null,
-          actions: [
-            CupertinoDialogAction(
-              isDefaultAction: true,
-              child: Text('Ok'),
-              onPressed: () async {
-                Navigator.of(context, rootNavigator: true).pop();
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyApp(),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
-      );
-    });
-  }
-
-  void _configureSelectNotificationSubject() {
-    selectNotificationSubject.stream.listen((String payload) async {
-      await Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => MyApp()),
-      );
-    });
-  }
-
-  @override
-  void dispose() {
-    didReceiveLocalNotificationSubject.close();
-    selectNotificationSubject.close();
-    super.dispose();
   }
 
   static List<String> days = [
@@ -194,25 +144,24 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
             }
           }
 
-          forcedNotifications() {
-            if (widget.finalSwitchState == true) {
-              for (int i = 15, k = 0; i < 20 && k < 5; i++, k++) {
-                for (int j = 0; j < 3; j++) {
-                  _showWeeklyAtDayAndTime((i * 3) + j, j, notificationTime[k],
-                      className[k], time[k], k + 1);
-                  _cancelNotification((k * 3) + j);
-                }
+          if (widget.finalSwitchState == true) {
+            _showNotification();
+            for (int i = 15, k = 0; i < 20 && k < 5; i++, k++) {
+              for (int j = 0; j < 3; j++) {
+                _showWeeklyAtDayAndTime((i * 3) + j, j, notificationTime[k],
+                    className[k], time[k], k + 1);
+                _cancelNotification((k * 3) + j);
               }
-            } else if (widget.finalSwitchState == false) {
-              for (int i = 15; i < 20; i++) {
-                for (int j = 0; j < 3; j++) {
-                  _cancelNotification((i * 3) + j);
+            }
+          } else if (widget.finalSwitchState == false) {
+            for (int i = 15; i < 20; i++) {
+              for (int j = 0; j < 3; j++) {
+                _cancelNotification((i * 3) + j);
                 }
               }
             }
-          }
 
-          forcedNotifications();
+          //forcedNotifications();
 
           return FutureBuilder<bool>(
               future:
@@ -641,6 +590,18 @@ class SecondScreenState extends State<SecondScreen> {
       ),
     );
   }
+}
+
+Future<void> _showNotification() async {
+  var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+      'your channel id', 'your channel name', 'your channel description',
+      importance: Importance.Max, priority: Priority.High, ticker: 'ticker');
+  var iOSPlatformChannelSpecifics = IOSNotificationDetails();
+  var platformChannelSpecifics = NotificationDetails(
+      androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
+  await flutterLocalNotificationsPlugin.show(
+      100, 'plain title', 'plain body', platformChannelSpecifics,
+      payload: 'item x');
 }
 
 Future<void> _showWeeklyAtDayAndTime(int notificationID, int itemNumber,
