@@ -145,7 +145,6 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
           }
 
           if (widget.finalSwitchState == true) {
-            _showNotification();
             for (int i = 15, k = 0; i < 20 && k < 5; i++, k++) {
               for (int j = 0; j < 3; j++) {
                 _showWeeklyAtDayAndTime((i * 3) + j, j, notificationTime[k],
@@ -592,17 +591,6 @@ class SecondScreenState extends State<SecondScreen> {
   }
 }
 
-Future<void> _showNotification() async {
-  var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-      'your channel id', 'your channel name', 'your channel description',
-      importance: Importance.Max, priority: Priority.High, ticker: 'ticker');
-  var iOSPlatformChannelSpecifics = IOSNotificationDetails();
-  var platformChannelSpecifics = NotificationDetails(
-      androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
-  await flutterLocalNotificationsPlugin.show(
-      100, 'plain title', 'plain body', platformChannelSpecifics,
-      payload: 'item x');
-}
 
 Future<void> _showWeeklyAtDayAndTime(int notificationID, int itemNumber,
     List list, List className, List time, int day) async {
