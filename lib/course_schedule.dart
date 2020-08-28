@@ -325,7 +325,7 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                 args.selectedYear == 'First Year') {
                               return Row(
                                 children: <Widget>[
-                                  SizedBox(
+                                  /*SizedBox(
                                     width:
                                         MediaQuery.of(context).size.width * 0.4,
                                     child: FlatButton(
@@ -339,7 +339,7 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                       color: Colors.black,
                                       textColor: Colors.white,
                                     ),
-                                  ),
+                                  ),*/
                                   SizedBox(
                                     width: 30.0,
                                   ),
@@ -591,13 +591,14 @@ class SecondScreenState extends State<SecondScreen> {
   }
 }
 
-
 Future<void> _showWeeklyAtDayAndTime(int notificationID, int itemNumber,
     List list, List className, List time, int day) async {
   var androidPlatformChannelSpecifics = AndroidNotificationDetails(
       'show weekly channel id',
       'show weekly channel name',
-      'show weekly description');
+      'show weekly description',
+      playSound: true,
+      styleInformation: DefaultStyleInformation(true, true));
   var iOSPlatformChannelSpecifics = IOSNotificationDetails();
   var platformChannelSpecifics = NotificationDetails(
       androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
