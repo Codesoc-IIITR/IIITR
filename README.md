@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/badge/Backend-firebase-orange">
 <img src="https://img.shields.io/badge/Language-dart-green">
 </p>
-<h2>A general utility app for students of <a href="https://iiitr.ac.in/">Indian Institute of technology, Raichur.</a></h2><br>
+<h2>A general utility app for students of <a href="https://iiitr.ac.in/">Indian Institute of Information technology, Raichur.</a></h2><br>
   
 
 <p align="center">
