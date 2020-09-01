@@ -347,7 +347,7 @@ class _CourseScheduleState extends State<CourseSchedule> {
 //initial value
                                     value: snapshot.data,
                                     textOn: 'All\nEnabled',
-                                    textOff: 'Enable\nby Choice',
+                                    textOff: 'Enable\nAlerts',
                                     colorOn: Colors.greenAccent[700],
                                     colorOff: Colors.redAccent[700],
                                     animationDuration: Duration(seconds: 1),
