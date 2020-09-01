@@ -11,8 +11,8 @@
 <img src="screenshots/splash.png" width=250 height=550>
 <img src="screenshots/home.png" width=250 height=550>
 <img src="screenshots/drawer.png" width=250 height=550>
-<img src="screenshots/mess.png" width=250 height=575>
-<img src="screenshots/bus.png" width=250 height=575>
-<img src="screenshots/course.png" width=250 height=575>
+<img src="screenshots/mess.png" width=250 height=550>
+<img src="screenshots/bus.png" width=250 height=550>
+<img src="screenshots/course.png" width=250 height=550>
 </p>
 <center><h6 align="center">Made with ❤️ from codesoc</h6></center>
