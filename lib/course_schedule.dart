@@ -322,7 +322,7 @@ class _CourseScheduleState extends State<CourseSchedule> {
                           future: getBoolValuesSF(),
                           builder: (context, AsyncSnapshot<bool> snapshot) {
                             if (snapshot.hasData &&
-                                args.selectedYear == 'First Year') {
+                                args.selectedYear == 'Second Year') {
                               return Row(
                                 children: <Widget>[
                                   /*SizedBox(
@@ -364,8 +364,7 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                             toast(
                                                 'Notifications are Enabled for All Classes Scheduled');
                                           } else if (state == false) {
-                                            toast(
-                                                'Enable by Choice is Enabled for Notifications');
+                                            toast('Alerts are Disabled');
                                           }
                                         });
                                       });
