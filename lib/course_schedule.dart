@@ -144,7 +144,7 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
             }
           }
 
-          if (widget.finalSwitchState == true) {
+          /*if (widget.finalSwitchState == true) {
             for (int i = 15, k = 0; i < 20 && k < 5; i++, k++) {
               for (int j = 0; j < 3; j++) {
                 _showWeeklyAtDayAndTime((i * 3) + j, j, notificationTime[k],
@@ -156,9 +156,9 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
             for (int i = 15; i < 20; i++) {
               for (int j = 0; j < 3; j++) {
                 _cancelNotification((i * 3) + j);
-                }
               }
             }
+          }*/
 
           //forcedNotifications();
 
@@ -175,7 +175,7 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
                             state, widget.switchNumber1, widget.switchNumber2);
                       });
 
-                      if (snapshot.data == false &&
+                      /*if (snapshot.data == false &&
                           widget.finalSwitchState == true) {
                         _showWeeklyAtDayAndTime(
                             (widget.switchNumber1 * 3) + widget.switchNumber2,
@@ -184,8 +184,8 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
                             className[widget.switchNumber1],
                             time[widget.switchNumber1],
                             widget.switchNumber1 + 1);
-                      } else if (snapshot.data == false &&
-                          widget.finalSwitchState == false) {
+                      } else */
+                      if (snapshot.data == false) {
                         _showWeeklyAtDayAndTime(
                             (widget.switchNumber1 * 3) + widget.switchNumber2,
                             widget.switchNumber2,
@@ -194,17 +194,25 @@ class _BuildedSwitchState extends State<BuildedSwitch> {
                             time[widget.switchNumber1],
                             widget.switchNumber1 + 1);
                         toast(
-                            'You will get Notified 10-15 mins before ${className[widget.switchNumber1][widget.switchNumber2]} class');
-                      } else if (snapshot.data == true &&
+                            'You will get Notified 10-15 mins before ${className[widget
+                                .switchNumber1][widget.switchNumber2]} class');
+                      }
+                      /*else if (snapshot.data == true &&
                           widget.finalSwitchState == true) {
                         _cancelNotification(
                             (widget.switchNumber1 * 3) + widget.switchNumber2);
-                      } else if (snapshot.data == true &&
-                          widget.finalSwitchState == false) {
+                      }*/ else if (snapshot.data == true) {
                         _cancelNotification(
                             (widget.switchNumber1 * 3) + widget.switchNumber2);
-                        toast(
-                            'You just Disabled Notification for ${className[widget.switchNumber1][widget.switchNumber2]} class');
+                        if (widget.finalSwitchState == false) {
+                          toast(
+                              'You just Disabled Notification for ${className[widget
+                                  .switchNumber1][widget
+                                  .switchNumber2]} class');
+                        } else {
+                          toast(
+                              'You should first disable "ALL Enabled" option');
+                        }
                       }
 
                       print(
@@ -230,6 +238,9 @@ class _CourseScheduleState extends State<CourseSchedule> {
   var className = [];
   var time = [];
   var notificationTime = [];
+  var classNameA = List<List<dynamic>>();
+  var timeA = List<List<dynamic>>();
+  var notificationTimeA = List<List<dynamic>>();
 
   int _index = 0;
   var cardsList = [
@@ -310,12 +321,14 @@ class _CourseScheduleState extends State<CourseSchedule> {
 
                       var lectureNames = snapshot.data.documents;
 
-                      for (var lectureName in lectureNames) {
-                        if (lectureName.documentID ==
-                            '${days[DateTime.now().weekday - 1]}') {
-                          className = lectureName['className'];
-                          notificationTime = lectureName['notificationTime'];
-                          time = lectureName['Time'];
+                      for (int i = 0; i < 7; i++) {
+                        for (var lectureName in lectureNames) {
+                          if (lectureName.documentID == '${days[i]}') {
+                            classNameA.add(lectureName['className']);
+                            notificationTimeA.add(
+                                lectureName['notificationTime']);
+                            timeA.add(lectureName['Time']);
+                          }
                         }
                       }
                       return FutureBuilder<bool>(
@@ -355,6 +368,24 @@ class _CourseScheduleState extends State<CourseSchedule> {
                                     iconOff: Icons.notifications,
                                     textSize: 17.0,
                                     onChanged: (bool state) {
+                                      if (state == true) {
+                                        for (int i = 15, k = 0; i < 20 &&
+                                            k < 5; i++, k++) {
+                                          for (int j = 0; j < 3; j++) {
+                                            _showWeeklyAtDayAndTime(
+                                                (i * 3) + j, j,
+                                                notificationTimeA[k],
+                                                classNameA[k], timeA[k], k + 1);
+                                            _cancelNotification((k * 3) + j);
+                                          }
+                                        }
+                                      } else if (state == false) {
+                                        for (int i = 15; i < 20; i++) {
+                                          for (int j = 0; j < 3; j++) {
+                                            _cancelNotification((i * 3) + j);
+                                          }
+                                        }
+                                      }
                                       WidgetsBinding.instance
                                           .addPostFrameCallback((_) {
                                         setState(() {
@@ -611,7 +642,7 @@ Future<void> _showWeeklyAtDayAndTime(int notificationID, int itemNumber,
       platformChannelSpecifics);
 }
 
-Future<void> _checkPendingNotificationRequests(context) async {
+/*Future<void> _checkPendingNotificationRequests(context) async {
   var pendingNotificationRequests =
       await flutterLocalNotificationsPlugin.pendingNotificationRequests();
   return showDialog<void>(
@@ -631,9 +662,12 @@ Future<void> _checkPendingNotificationRequests(context) async {
       );
     },
   );
-}
+}*/
 
 Future<void> _cancelNotification(int id) async {
   await flutterLocalNotificationsPlugin.cancel(id);
 }
+
+
+
 
