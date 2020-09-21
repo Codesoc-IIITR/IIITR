@@ -242,7 +242,6 @@ class _CourseScheduleState extends State<CourseSchedule> {
   var timeA = List<List<dynamic>>();
   var notificationTimeA = List<List<dynamic>>();
 
-  int _index = 0;
   var cardsList = [
     CardItemModel("Monday"),
     CardItemModel("Tuesday"),
@@ -269,6 +268,24 @@ class _CourseScheduleState extends State<CourseSchedule> {
     'Sunday',
   ];
 
+  int today = DateTime.now().weekday - 1;
+
+  int _index =
+      DateTime.now().weekday - 1 != 5 && DateTime.now().weekday - 1 != 6
+          ? DateTime.now().weekday - 1
+          : 0;
+
+  todayIndicator(i) {
+    if (i == today) {
+      return Text(
+        "[ \"today\" ]",
+        style: TextStyle(color: Colors.white),
+      );
+    } else {
+      return Text("");
+    }
+  }
+
   addBoolToSF(bool select) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.setBool('isSelected', select);
@@ -286,6 +303,7 @@ class _CourseScheduleState extends State<CourseSchedule> {
   Widget build(BuildContext context) {
     final ScheduleYearScreenArguments args =
         ModalRoute.of(context).settings.arguments;
+
 
     return WillPopScope(
       onWillPop: backPressed,
@@ -427,7 +445,10 @@ class _CourseScheduleState extends State<CourseSchedule> {
                     .height * 0.7, // card height
                 child: PageView.builder(
                   itemCount: 5,
-                  controller: PageController(viewportFraction: 0.7),
+                  controller: PageController(
+                      initialPage: today != 5 && today != 6 ? today : 0,
+                      keepPage: true,
+                      viewportFraction: 0.7),
                   onPageChanged: (int index) {
                     setState(() {
                       _index = index;
@@ -474,6 +495,7 @@ class _CourseScheduleState extends State<CourseSchedule> {
                               front: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
+                                  todayIndicator(i),
                                   Text("${cardsList[i].cardTitle}",
                                       style: TextStyle(
                                           fontSize: 38.0, color: Colors.white)),
